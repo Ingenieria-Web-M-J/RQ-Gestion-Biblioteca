@@ -1,5 +1,10 @@
-const Home = () => {
-  return <main className='h-screen w-full flex items-center justify-center'>Hola mundo</main>;
-};
+import Hero from "@/components/hero";
 
-export default Home;
+
+export default function Home() {
+  return (
+    <div>
+      <Hero/>
+    </div>
+  );
+}
