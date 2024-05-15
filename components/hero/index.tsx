@@ -9,36 +9,36 @@ const Hero = () => {
         }
       `}</style>
             <header className="bg-gray-900 pattern">
-                <div className="container px-6 mx-auto">
-                    <nav className="flex flex-col py-6 sm:flex-row sm:justify-between sm:items-center">
+                <div className="mx-auto px-6 container">
+                    <nav className="flex sm:flex-row flex-col sm:justify-between sm:items-center py-6">
                         <a href="#">
                             <img
-                                className="w-auto h-6 sm:h-7"
-                                src="https://merakiui.com/images/logo.svg"
+                                className="w-24 h-24"
+                                src="/logo.png"
                                 alt="Logo"
                             />
                         </a>
-                        <div className="flex items-center mt-2 -mx-2 sm:mt-0">
+                        <div className="flex items-center -mx-2 mt-2 sm:mt-0">
                             <a
                                 href="#"
-                                className="px-3 py-1 text-sm font-semibold text-white transition-colors duration-300 transform border-2 rounded-md hover:bg-gray-700"
+                                className="border-2 hover:bg-gray-700 px-3 py-1 rounded-md font-semibold text-sm text-white transform transition-colors duration-300"
                             >
                                 Sign In
                             </a>
                             <a
                                 href="#"
-                                className="px-3 py-2 mx-2 text-sm font-semibold text-white transition-colors duration-300 transform bg-black rounded-md hover:bg-gray-800"
+                                className="border-2 hover:bg-gray-700 px-3 py-1 rounded-md font-semibold text-sm text-white transform transition-colors duration-300"
                             >
                                 Sign Up
                             </a>
                         </div>
                     </nav>
-                    <div className="flex flex-col items-center py-6 lg:h-[36rem] lg:flex-row">
+                    <div className="flex lg:flex-row flex-col items-center py-6 lg:h-[36rem]">
                         <div className="lg:w-1/2">
-                            <h2 className="text-3xl font-semibold text-gray-100 lg:text-4xl">
+                            <h2 className="font-semibold text-3xl text-gray-100 lg:text-4xl">
                                 Brand
                             </h2>
-                            <h3 className="mt-2 text-2xl font-semibold text-gray-100">
+                            <h3 className="mt-2 font-semibold text-2xl text-gray-100">
                                 Hello <span className="text-blue-400">Guest</span>
                             </h3>
                             <p className="mt-4 text-gray-100">
@@ -48,35 +48,35 @@ const Hero = () => {
                                 explicabo a?
                             </p>
                         </div>
-                        <div className="flex mt-8 lg:w-1/2 lg:justify-end lg:mt-0">
-                            <div className="w-full max-w-md bg-white rounded-lg dark:bg-gray-800">
+                        <div className="flex lg:justify-end mt-8 lg:mt-0 lg:w-1/2">
+                            <div className="bg-white dark:bg-gray-800 rounded-lg w-full max-w-md">
                                 <div className="px-6 py-8 text-center">
-                                    <h2 className="text-2xl font-semibold text-gray-700 dark:text-white">
+                                    <h2 className="font-semibold text-2xl text-gray-700 dark:text-white">
                                         Sign In
                                     </h2>
                                     <form action="#">
                                         <div className="mt-4">
                                             <input
-                                                className="block w-full px-4 py-2 mt-4 text-gray-700 placeholder-gray-400 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:ring-blue-300 focus:outline-none focus:ring"
+                                                className="block dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-opacity-40 mt-4 px-4 py-2 border focus:border-blue-400 dark:focus:border-blue-300 rounded-md w-full text-gray-700 placeholder-gray-400 dark:placeholder-gray-500 focus:ring-blue-300 focus:outline-none focus:ring"
                                                 type="email"
                                                 placeholder="Email address"
                                                 aria-label="Email address"
                                             />
                                             <input
-                                                className="block w-full px-4 py-2 mt-4 text-gray-700 placeholder-gray-400 bg-white border rounded-md dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:ring-blue-300 focus:outline-none focus:ring"
+                                                className="block dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-opacity-40 mt-4 px-4 py-2 border focus:border-blue-400 dark:focus:border-blue-300 rounded-md w-full text-gray-700 placeholder-gray-400 dark:placeholder-gray-500 focus:ring-blue-300 focus:outline-none focus:ring"
                                                 type="password"
                                                 placeholder="Password"
                                                 aria-label="Password"
                                             />
                                         </div>
-                                        <div className="flex items-center justify-between mt-4">
+                                        <div className="flex justify-between items-center mt-4">
                                             <a
                                                 href="#"
-                                                className="text-sm text-gray-600 dark:text-gray-200 hover:underline"
+                                                className="text-gray-600 text-sm dark:text-gray-200 hover:underline"
                                             >
                                                 Forget Password?
                                             </a>
-                                            <button className="px-6 py-2 font-medium text-white transition-colors duration-300 transform bg-gray-900 rounded-md hover:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-800 dark:focus:bg-gray-700">
+                                            <button className="bg-gray-900 hover:bg-gray-800 dark:hover:bg-gray-700 focus:bg-gray-800 dark:focus:bg-gray-700 px-6 py-2 rounded-md font-medium text-white transform transition-colors duration-300 focus:outline-none">
                                                 Sign In
                                             </button>
                                         </div>
