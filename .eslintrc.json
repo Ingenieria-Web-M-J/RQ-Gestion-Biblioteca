@@ -25,7 +25,7 @@
   "rules": {
     "func-style": ["error", "expression"],
     "react/function-component-definition": [
-      "error",
+      "off",
       {
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
@@ -57,7 +57,7 @@
       "files": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
       "excludedFiles": "pages/**",
       "rules": {
-        "import/no-default-export": "error"
+        "import/no-default-export": "off"
       }
     }
   ]

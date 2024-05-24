@@ -1,10 +1,9 @@
-import Hero from "@/components/hero";
+import {LandingMain} from "@/components/templates";
 
-
-export default function Home() {
-  return (
+export default function Landing() {
+  return (  
     <div>
-      <Hero/>
+      <LandingMain/>
     </div>
   );
 }
