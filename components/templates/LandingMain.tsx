@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function LandingMain() {
     return (
         <div>
-            <header className="bg-gray-900 w-screen h-screen">
+            <header className="bg-gray-900 w-screen sm:h-screen">
                 <div className="mx-auto px-6 container">
                     <nav className="flex sm:flex-row flex-col sm:justify-between sm:items-center py-6">
                         <Link href="/">
