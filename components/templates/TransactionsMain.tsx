@@ -1,4 +1,7 @@
-//Template para el contenido principal de la página de gestión de transacciones
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
+
 export default function TransactionsMain() {
     return (
         <div className="bg-gray-900 w-screen h-screen flex items-center justify-center">

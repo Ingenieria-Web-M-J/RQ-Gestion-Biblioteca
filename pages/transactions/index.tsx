@@ -2,6 +2,7 @@ import { NavbarDesk, NavbarMobile, TransactionsMain } from "@/components/templat
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
+const Borrow = await prisma.borrow.create
 
 export default function Transactions() {
     return (

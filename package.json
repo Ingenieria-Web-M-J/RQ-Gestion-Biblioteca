@@ -12,11 +12,14 @@
     "test:ci": "jest --ci --coverage"
   },
   "dependencies": {
+    "@next-auth/prisma-adapter": "^1.0.7",
     "@prisma/client": "^5.14.0",
     "next": "^14.2.3",
+    "next-auth": "^4.24.7",
     "prisma": "^5.14.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "safe-json-stringify": "^1.2.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.4",
