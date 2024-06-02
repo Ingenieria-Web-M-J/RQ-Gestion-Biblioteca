@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '@/config/prisma'; 
-import { PrismaClient } from '@prisma/client'; // Importa el tipo PrismaClient
+
 
 // Define la estructura esperada del cuerpo del POST request
 interface BorrowRequestBody {
@@ -17,9 +17,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
 
         try {
-            const borrow = await prisma.$transaction(async (prisma: PrismaClient) => {
+            const borrow = await prisma.$transaction(async (tx) => {
                 // Crear el registro de préstamo
-                const borrowRecord = await prisma.borrow.create({
+                const borrowRecord = await tx.borrow.create({
                     data: {
                         userId,
                         bookId,
@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 });
 
                 // Actualizar el estado del libro a no disponible
-                await prisma.book.update({
+                await tx.book.update({
                     where: { id: bookId },
                     data: { available: false },
                 });
