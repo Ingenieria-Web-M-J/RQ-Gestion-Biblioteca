@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { signIn } from 'next-auth/react';
 
 //Template para el contenido principal de la página de landing
 
@@ -65,7 +66,11 @@ export default function LandingMain() {
                                             >
                                                 Olvidó su contraseña?
                                             </Link>
-                                            <button className="bg-gray-900 hover:bg-gray-800 dark:hover:bg-gray-700 focus:bg-gray-800 dark:focus:bg-gray-700 px-6 py-2 rounded-md font-medium text-white transform transition-colors duration-300 focus:outline-none">
+                                            <button 
+                                            className="bg-gray-900 hover:bg-gray-800 dark:hover:bg-gray-700 focus:bg-gray-800 dark:focus:bg-gray-700 px-6 py-2 rounded-md font-medium text-white transform transition-colors duration-300 focus:outline-none"
+                                            onClick={() => {
+                                                signIn("auth0");
+                                            }}>
                                                 Iniciar
                                             </button>
                                         </div>
