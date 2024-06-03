@@ -1,4 +1,4 @@
-import { NavbarDesk, NavbarMobile, UsersMain } from "@/components/templates";
+import { NavbarDesk, NavbarMobile, UsersMain } from "@/components/plantilla";
 
 export default function Users() {
     return (

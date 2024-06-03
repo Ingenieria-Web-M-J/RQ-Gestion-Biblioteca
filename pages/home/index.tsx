@@ -1,4 +1,4 @@
-import { NavbarDesk, NavbarMobile, HomeMain } from "@/components/templates";
+import { NavbarDesk, NavbarMobile, HomeMain } from "@/components/plantilla";
 
 export default function Home() {
     return (

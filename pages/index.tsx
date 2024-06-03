@@ -1,4 +1,4 @@
-import {LandingMain} from "@/components/templates";
+import {LandingMain} from "@/components/plantilla";
 
 export default function Landing() {
   return (  

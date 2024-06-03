@@ -1,4 +1,4 @@
-import { NavbarDesk, NavbarMobile, TransactionsMain } from "@/components/templates";
+import { NavbarDesk, NavbarMobile, TransactionsMain } from "@/components/plantilla";
 
 
 

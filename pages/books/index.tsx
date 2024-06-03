@@ -1,4 +1,4 @@
-import { NavbarDesk, NavbarMobile, BooksMain } from "@/components/templates";
+import { NavbarDesk, NavbarMobile, BooksMain } from "@/components/plantilla";
 
 export default function Books() {
     return (
