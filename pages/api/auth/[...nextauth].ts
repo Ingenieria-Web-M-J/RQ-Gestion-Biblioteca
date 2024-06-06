@@ -3,7 +3,6 @@ import Auth0Provider from 'next-auth/providers/auth0';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '@/config/prisma';
-import { Role } from '@/prisma/generated/type-graphql';
 
 const options: NextAuthOptions = {
   providers: [
@@ -23,10 +22,11 @@ const options: NextAuthOptions = {
       if (!user.password) {
         user.password = user.id; // Puedes generar una contraseña segura aquí
       }
+      /*
       // Asigna un valor al campo role si no está presente
       if (!user.role) {
-        user.role = 'USER' as Role; // O el rol que consideres por defecto
-      }
+        user.role = 'USER'; // O el rol que consideres por defecto
+      }*/
       return true;
     },
     async session({ session, user }) {
