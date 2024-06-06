@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { BookType, BorrowType } from '@/types';
+import { Book, Borrow } from '@/prisma/generated/type-graphql';
 
 export default function Transactions() {
-    const [borrows, setBorrows] = useState<BorrowType[]>([]);
-    const [availableBooks, setAvailableBooks] = useState<BookType[]>([]);
+    const [borrows, setBorrows] = useState<Borrow[]>([]);
+    const [availableBooks, setAvailableBooks] = useState<Book[]>([]);
     const [userId] = useState('1'); // Establece el ID del usuario actual aquí
 
     useEffect(() => {
@@ -66,7 +66,7 @@ export default function Transactions() {
                         <ul>
                             {borrows.map((borrow) => (
                                 <li key={borrow.id}>
-                                    {borrow.book.title} por {borrow.book.author}
+                                    {borrow.book?.title} por {borrow.book?.author}
                                 </li>
                             ))}
                         </ul>
