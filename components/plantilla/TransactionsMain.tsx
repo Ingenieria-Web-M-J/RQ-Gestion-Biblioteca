@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 export default function Transactions() {
     const [borrows, setBorrows] = useState([]);
     const [availableBooks, setAvailableBooks] = useState([]);
-    const [userId, setUserId] = useState(''); // Establece el ID del usuario actual aquí
+    const [userId] = useState(''); // Establece el ID del usuario actual aquí
 
     useEffect(() => {
         // Fetch user borrows
@@ -44,6 +44,7 @@ export default function Transactions() {
             const updatedAvailableBooksData = await updatedAvailableBooks.json();
             setAvailableBooks(updatedAvailableBooksData);
         } else {
+            // eslint-disable-next-line no-console
             console.error('Error borrowing book');
         }
     };
