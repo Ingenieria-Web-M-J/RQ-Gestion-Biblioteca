@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import { BookType, BorrowType } from '@/types';
 
 export default function Transactions() {
-    const [borrows, setBorrows] = useState([]);
-    const [availableBooks, setAvailableBooks] = useState([]);
-    const [userId] = useState(''); // Establece el ID del usuario actual aquí
+    const [borrows, setBorrows] = useState<BorrowType[]>([]);
+    const [availableBooks, setAvailableBooks] = useState<BookType[]>([]);
+    const [userId] = useState('1'); // Establece el ID del usuario actual aquí
 
     useEffect(() => {
         // Fetch user borrows
