@@ -1,7 +1,10 @@
 import { NavbarDesk, NavbarMobile, HomeMain } from "@/components/plantilla";
+import PrivateRoute from "@/components/PrivateRoute";
 
 export default function Home() {
     return (
+        <PrivateRoute>
+
         <div className="flex flex-col md:flex-row">
             <div className="md:block hidden">
                 <NavbarDesk/>
@@ -11,5 +14,6 @@ export default function Home() {
             </div>
             <HomeMain/>
         </div>
+        </PrivateRoute>
     );
 }

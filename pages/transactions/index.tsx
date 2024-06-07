@@ -1,11 +1,14 @@
 import { NavbarDesk, NavbarMobile, TransactionsMain } from "@/components/plantilla";
-
+import PrivateRoute from "@/components/PrivateRoute";
 
 
 
 export default function Transactions() {
     return (
+        <PrivateRoute>
+
         <div className="flex flex-col md:flex-row">
+           
             <div className="md:block hidden">
                 <NavbarDesk/>
             </div>
@@ -13,6 +16,8 @@ export default function Transactions() {
                 <NavbarMobile/>
             </div>
             <TransactionsMain/>
+        
         </div>
+        </PrivateRoute>
     );
 }
