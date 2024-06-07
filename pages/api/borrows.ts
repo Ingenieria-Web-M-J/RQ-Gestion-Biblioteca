@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '@/config/prisma'; 
 
-
 // Define la estructura esperada del cuerpo del POST request
 interface BorrowRequestBody {
     userId: string;
@@ -37,6 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             res.status(200).json(borrow);
         } catch (error) {
+            // eslint-disable-next-line no-console
             console.error('Error creating borrow record:', error);
             res.status(500).json({ error: 'Error creating borrow record' });
         }
@@ -54,6 +54,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             });
             res.status(200).json(borrows);
         } catch (error) {
+            // eslint-disable-next-line no-console
             console.error('Error fetching borrow records:', error);
             res.status(500).json({ error: 'Error fetching borrow records' });
         }

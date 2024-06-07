@@ -17,15 +17,16 @@ const options: NextAuthOptions = {
   secret: process.env.AUTH0_CLIENT_SECRET,
   adapter: PrismaAdapter(prisma),
   callbacks: {
-    async signIn({ user, account, profile }) {
+    async signIn({ user }) {
       // Asigna un valor al campo password si no está presente
       if (!user.password) {
         user.password = user.id; // Puedes generar una contraseña segura aquí
       }
+      /*
       // Asigna un valor al campo role si no está presente
       if (!user.role) {
         user.role = 'USER'; // O el rol que consideres por defecto
-      }
+      }*/
       return true;
     },
     async session({ session, user }) {
