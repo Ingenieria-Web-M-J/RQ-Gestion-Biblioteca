@@ -7,15 +7,17 @@ export default function Transactions() {
     return (
         <PrivateRoute>
 
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col md:flex-row ">
            
             <div className="md:block hidden">
                 <NavbarDesk/>
             </div>
-            <div className="block md:hidden">
+            <div className="block md:hidden ">
                 <NavbarMobile/>
             </div>
-            <TransactionsMain/>
+            <div className="flex items-center justify-between border border-blue-700 w-full">
+                <TransactionsMain/>
+            </div>
         
         </div>
         </PrivateRoute>
