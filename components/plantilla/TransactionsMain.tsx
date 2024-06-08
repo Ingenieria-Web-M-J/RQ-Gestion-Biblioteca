@@ -1,10 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { BookType } from '@/types';
 import { GET_BOOKS } from '@/utils/queries/Books'
 import { useQuery  } from '@apollo/client'
 import React, { useEffect, useState } from 'react';
-
-
-
 
 const TransactionsMain = () => {
     const [books, setBooks] = useState<BookType[]>([]);
@@ -595,7 +593,7 @@ const TransactionsMain = () => {
     
               <div className='flex items-center mt-4 gap-x-4 sm:mt-0'>
                 <a
-                  href='#'
+                  href=' '
                   className='flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800'
                 >
                   <svg
@@ -617,7 +615,7 @@ const TransactionsMain = () => {
                 </a>
     
                 <a
-                  href='#'
+                  href=' '
                   className='flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800'
                 >
                   <span>Next</span>
