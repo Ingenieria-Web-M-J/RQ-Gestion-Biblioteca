@@ -8,7 +8,28 @@ import TR from '@/components/tr'
 
 const TransactionsMain = () => {
     const [books, setBooks] = useState<BookType[]>([]);
+    const [search, setSearch] = useState('');
     const {loading} = useQuery(GET_BOOKS,{
+
+      variables: {
+        take: 100,
+        skip: 0,
+        where: {
+          OR: [
+            {
+              title: {
+                contains: search,
+              },
+            },
+            {
+              author: {
+                contains: search,
+              },
+            },
+            
+          ],
+        },
+      },
 
         fetchPolicy: 'cache-and-network',
         onCompleted(data) {
@@ -16,6 +37,8 @@ const TransactionsMain = () => {
         },
     })
     if (loading) return <h1>Loading...</h1>;
+    
+   
 
     return (
         <div >
@@ -26,7 +49,7 @@ const TransactionsMain = () => {
                   <h2 className='text-lg font-medium text-white dark:text-white'>DB Libros</h2>
     
                   <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400'>
-                    240 Libros
+                    {books.length} Libros
                   </span>
                 </div>
     
@@ -107,6 +130,7 @@ const TransactionsMain = () => {
                 <input
                   type='text'
                   placeholder='Search'
+                  onChange={(e) => setSearch(e.target.value)}
                   className='block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
                 />
               </div>

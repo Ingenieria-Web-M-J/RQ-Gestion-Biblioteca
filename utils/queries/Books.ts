@@ -10,9 +10,7 @@ query Books($take: Int, $skip: Int, $orderBy: [BookOrderByWithRelationInput!]) {
     available
     createdAt
     updatedAt
-    _count {
-      borrowRecords
-    }
+    
    
   }
 }
