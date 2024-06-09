@@ -1,10 +1,10 @@
 export type BookType = {
     id: number;    
-    title: String;
-    author: String;
-    isbn: String;   
+    title: string;
+    author: string;
+    isbn: string;   
     available: Boolean; 
     borrowRecords: [Borrow];
-    createdAt: String;
-    updatedAt: String; 
+    createdAt: string;
+    updatedAt: string; 
   };

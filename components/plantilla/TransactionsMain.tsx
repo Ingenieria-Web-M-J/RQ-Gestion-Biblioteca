@@ -2,7 +2,7 @@ import { BookType } from '@/types';
 import { GET_BOOKS } from '@/utils/queries/Books'
 import { useQuery  } from '@apollo/client'
 import React, { useEffect, useState } from 'react';
-
+import TR from '@/components/tr'
 
 
 
@@ -12,27 +12,25 @@ const TransactionsMain = () => {
 
         fetchPolicy: 'cache-and-network',
         onCompleted(data) {
-        setBooks(data.products);
+        setBooks(data.books);
         },
     })
     if (loading) return <h1>Loading...</h1>;
 
     return (
-        <div className='flex  border border-red-700'>
+        <div >
           <section className='container px-4 mx-auto'>
             <div className='sm:flex sm:items-center sm:justify-between'>
               <div>
                 <div className='flex items-center gap-x-3'>
-                  <h2 className='text-lg font-medium text-gray-800 dark:text-white'>Customers</h2>
+                  <h2 className='text-lg font-medium text-white dark:text-white'>DB Libros</h2>
     
                   <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400'>
-                    240 vendors
+                    240 Libros
                   </span>
                 </div>
     
-                <p className='mt-1 text-sm text-gray-500 dark:text-gray-300'>
-                  These companies have purchased in the last 12 months.
-                </p>
+                
               </div>
     
               <div className='flex items-center mt-4 gap-x-3'>
@@ -85,19 +83,8 @@ const TransactionsMain = () => {
             </div>
     
             <div className='mt-6 md:flex md:items-center md:justify-between'>
-              <div className='inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700'>
-                <button className='px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 bg-gray-100 sm:text-sm dark:bg-gray-800 dark:text-gray-300'>
-                  View all
-                </button>
-    
-                <button className='px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100'>
-                  Monitored
-                </button>
-    
-                <button className='px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100'>
-                  Unmonitored
-                </button>
-              </div>
+              
+            
     
               <div className='relative flex items-center mt-4 md:mt-0'>
                 <span className='absolute'>
@@ -136,7 +123,7 @@ const TransactionsMain = () => {
                             className='py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
                           >
                             <button className='flex items-center gap-x-3 focus:outline-none'>
-                              <span>Company</span>
+                              <span>Titulo</span>
     
                               <svg
                                 className='h-3'
@@ -170,29 +157,24 @@ const TransactionsMain = () => {
                             scope='col'
                             className='px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
                           >
-                            Status
+                            Estado
                           </th>
     
                           <th
                             scope='col'
                             className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
                           >
-                            About
+                            Autor
                           </th>
     
                           <th
                             scope='col'
                             className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
                           >
-                            Users
+                            Portada
                           </th>
     
-                          <th
-                            scope='col'
-                            className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'
-                          >
-                            License use
-                          </th>
+                         
     
                           <th scope='col' className='relative py-3.5 px-4'>
                             <span className='sr-only'>Edit</span>
@@ -200,387 +182,11 @@ const TransactionsMain = () => {
                         </tr>
                       </thead>
                       <tbody className='bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900'>
-                        <tr>
-                          <td className='px-4 py-4 text-sm font-medium whitespace-nowrap'>
-                            <div>
-                              <h2 className='font-medium text-gray-800 dark:text-white '>Catalog</h2>
-                              <p className='text-sm font-normal text-gray-600 dark:text-gray-400'>
-                                catalogapp.io
-                              </p>
-                            </div>
-                          </td>
-                          <td className='px-12 py-4 text-sm font-medium whitespace-nowrap'>
-                            <div className='inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800'>
-                              Customer
-                            </div>
-                          </td>
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div>
-                              <h4 className='text-gray-700 dark:text-gray-200'>Content curating app</h4>
-                              <p className='text-gray-500 dark:text-gray-400'>
-                                Brings all your news into one place
-                              </p>
-                            </div>
-                          </td>
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div className='flex items-center'>
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <p className='flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full'>
-                                +4
-                              </p>
-                            </div>
-                          </td>
-    
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div className='w-48 h-1.5 bg-blue-200 overflow-hidden rounded-full'>
-                              <div className='bg-blue-500 w-2/3 h-1.5'></div>
-                            </div>
-                          </td>
-    
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <button className='px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100'>
-                              <svg
-                                xmlns='http://www.w3.org/2000/svg'
-                                fill='none'
-                                viewBox='0 0 24 24'
-                                strokeWidth='1.5'
-                                stroke='currentColor'
-                                className='w-6 h-6'
-                              >
-                                <path
-                                  strokeLinecap='round'
-                                  strokeLinejoin='round'
-                                  d='M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z'
-                                />
-                              </svg>
-                            </button>
-                          </td>
-                        </tr>
-    
-                        <tr>
-                          <td className='px-4 py-4 text-sm font-medium whitespace-nowrap'>
-                            <div>
-                              <h2 className='font-medium text-gray-800 dark:text-white '>Circooles</h2>
-                              <p className='text-sm font-normal text-gray-600 dark:text-gray-400'>
-                                getcirooles.com
-                              </p>
-                            </div>
-                          </td>
-                          <td className='px-12 py-4 text-sm font-medium whitespace-nowrap'>
-                            <div className='inline px-3 py-1 text-sm font-normal text-gray-500 bg-gray-100 rounded-full dark:text-gray-400 gap-x-2 dark:bg-gray-800'>
-                              Churned
-                            </div>
-                          </td>
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div>
-                              <h4 className='text-gray-700 dark:text-gray-200'>Design software</h4>
-                              <p className='text-gray-500 dark:text-gray-400'>
-                                Super lightweight design app
-                              </p>
-                            </div>
-                          </td>
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div className='flex items-center'>
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <p className='flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full'>
-                                +4
-                              </p>
-                            </div>
-                          </td>
-    
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div className='w-48 h-1.5 bg-blue-200 overflow-hidden rounded-full'>
-                              <div className='bg-blue-500 w-2/5 h-1.5'></div>
-                            </div>
-                          </td>
-    
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <button className='px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100'>
-                              <svg
-                                xmlns='http://www.w3.org/2000/svg'
-                                fill='none'
-                                viewBox='0 0 24 24'
-                                strokeWidth='1.5'
-                                stroke='currentColor'
-                                className='w-6 h-6'
-                              >
-                                <path
-                                  strokeLinecap='round'
-                                  strokeLinejoin='round'
-                                  d='M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z'
-                                />
-                              </svg>
-                            </button>
-                          </td>
-                        </tr>
-    
-                        <tr>
-                          <td className='px-4 py-4 text-sm font-medium whitespace-nowrap'>
-                            <div>
-                              <h2 className='font-medium text-gray-800 dark:text-white '>Sisyphus</h2>
-                              <p className='text-sm font-normal text-gray-600 dark:text-gray-400'>
-                                sisyphus.com
-                              </p>
-                            </div>
-                          </td>
-                          <td className='px-12 py-4 text-sm font-medium whitespace-nowrap'>
-                            <div className='inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800'>
-                              Customer
-                            </div>
-                          </td>
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div>
-                              <h4 className='text-gray-700 dark:text-gray-200'>
-                                Automation and workflow
-                              </h4>
-                              <p className='text-gray-500 dark:text-gray-400'>
-                                Time tracking, invoicing and expenses
-                              </p>
-                            </div>
-                          </td>
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div className='flex items-center'>
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <p className='flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full'>
-                                +4
-                              </p>
-                            </div>
-                          </td>
-    
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div className='w-48 h-1.5 bg-blue-200 overflow-hidden rounded-full'>
-                              <div className='bg-blue-500 w-11/12 h-1.5'></div>
-                            </div>
-                          </td>
-    
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <button className='px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100'>
-                              <svg
-                                xmlns='http://www.w3.org/2000/svg'
-                                fill='none'
-                                viewBox='0 0 24 24'
-                                strokeWidth='1.5'
-                                stroke='currentColor'
-                                className='w-6 h-6'
-                              >
-                                <path
-                                  strokeLinecap='round'
-                                  strokeLinejoin='round'
-                                  d='M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z'
-                                />
-                              </svg>
-                            </button>
-                          </td>
-                        </tr>
-    
-                        <tr>
-                          <td className='px-4 py-4 text-sm font-medium whitespace-nowrap'>
-                            <div>
-                              <h2 className='font-medium text-gray-800 dark:text-white '>Hourglass</h2>
-                              <p className='text-sm font-normal text-gray-600 dark:text-gray-400'>
-                                hourglass.app
-                              </p>
-                            </div>
-                          </td>
-                          <td className='px-12 py-4 text-sm font-medium whitespace-nowrap'>
-                            <div className='inline px-3 py-1 text-sm font-normal text-gray-500 bg-gray-100 rounded-full dark:text-gray-400 gap-x-2 dark:bg-gray-800'>
-                              Churned
-                            </div>
-                          </td>
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div>
-                              <h4 className='text-gray-700 dark:text-gray-200'>Productivity app</h4>
-                              <p className='text-gray-500 dark:text-gray-400'>
-                                Time management and productivity
-                              </p>
-                            </div>
-                          </td>
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div className='flex items-center'>
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <p className='flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full'>
-                                +4
-                              </p>
-                            </div>
-                          </td>
-    
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div className='w-48 h-1.5 bg-blue-200 overflow-hidden rounded-full'>
-                              <div className='bg-blue-500 w-1/3 h-1.5'></div>
-                            </div>
-                          </td>
-    
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <button className='px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100'>
-                              <svg
-                                xmlns='http://www.w3.org/2000/svg'
-                                fill='none'
-                                viewBox='0 0 24 24'
-                                strokeWidth='1.5'
-                                stroke='currentColor'
-                                className='w-6 h-6'
-                              >
-                                <path
-                                  strokeLinecap='round'
-                                  strokeLinejoin='round'
-                                  d='M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z'
-                                />
-                              </svg>
-                            </button>
-                          </td>
-                        </tr>
-    
-                        <tr>
-                          <td className='px-4 py-4 text-sm font-medium whitespace-nowrap'>
-                            <div>
-                              <h2 className='font-medium text-gray-800 dark:text-white '>Quotient</h2>
-                              <p className='text-sm font-normal text-gray-600 dark:text-gray-400'>
-                                quotient.co
-                              </p>
-                            </div>
-                          </td>
-                          <td className='px-12 py-4 text-sm font-medium whitespace-nowrap'>
-                            <div className='inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800'>
-                              Customer
-                            </div>
-                          </td>
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div>
-                              <h4 className='text-gray-700 dark:text-gray-200'>Sales CRM</h4>
-                              <p className='text-gray-500 dark:text-gray-400'>
-                                Web-based sales doc management
-                              </p>
-                            </div>
-                          </td>
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div className='flex items-center'>
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1256&q=80'
-                                alt=''
-                              />
-                              <img
-                                className='object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0'
-                                src='https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80'
-                                alt=''
-                              />
-                              <p className='flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full'>
-                                +4
-                              </p>
-                            </div>
-                          </td>
-    
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <div className='w-48 h-1.5 bg-blue-200 overflow-hidden rounded-full'>
-                              <div className='bg-blue-500 w-1/6 h-1.5'></div>
-                            </div>
-                          </td>
-    
-                          <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                            <button className='px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100'>
-                              <svg
-                                xmlns='http://www.w3.org/2000/svg'
-                                fill='none'
-                                viewBox='0 0 24 24'
-                                strokeWidth='1.5'
-                                stroke='currentColor'
-                                className='w-6 h-6'
-                              >
-                                <path
-                                  strokeLinecap='round'
-                                  strokeLinejoin='round'
-                                  d='M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z'
-                                />
-                              </svg>
-                            </button>
-                          </td>
-                        </tr>
+                        {books.map((book)=> {
+                          return <TR key={book.id} Book={book}/>;
+
+                        })} 
+                        
                       </tbody>
                     </table>
                   </div>

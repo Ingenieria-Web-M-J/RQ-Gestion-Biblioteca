@@ -15,7 +15,7 @@ export default function Transactions() {
             <div className="block md:hidden ">
                 <NavbarMobile/>
             </div>
-            <div className="flex items-center justify-between border border-blue-700 w-full">
+            <div className="flex items-center justify-between border px-[450px] bg-black w-full">
                 <TransactionsMain/>
             </div>
         
