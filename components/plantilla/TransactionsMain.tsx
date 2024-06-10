@@ -3,12 +3,13 @@ import { GET_BOOKS } from '@/utils/queries/Books'
 import { useQuery  } from '@apollo/client'
 import React, { useEffect, useState } from 'react';
 import TR from '@/components/tr'
-
+import { useRouter } from 'next/router';
 
 
 const TransactionsMain = () => {
     const [books, setBooks] = useState<BookType[]>([]);
     const [search, setSearch] = useState('');
+    const router = useRouter();
     const {loading} = useQuery(GET_BOOKS,{
 
       variables: {
@@ -84,7 +85,7 @@ const TransactionsMain = () => {
                   <span>Import</span>
                 </button>
     
-                <button className='flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600'>
+                <button onClick={() => router.push('/admin/new')} className='flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
@@ -100,7 +101,7 @@ const TransactionsMain = () => {
                     />
                   </svg>
     
-                  <span>Add vendor</span>
+                  <span>Agregar Libro</span>
                 </button>
               </div>
             </div>
@@ -275,3 +276,5 @@ const TransactionsMain = () => {
 }
 
 export default TransactionsMain
+
+

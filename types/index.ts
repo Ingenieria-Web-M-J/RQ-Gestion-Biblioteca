@@ -4,7 +4,7 @@ export type BookType = {
     author: string;
     isbn: string;   
     available: Boolean; 
-    borrowRecords: [Borrow];
+   
     createdAt: string;
     updatedAt: string; 
   };

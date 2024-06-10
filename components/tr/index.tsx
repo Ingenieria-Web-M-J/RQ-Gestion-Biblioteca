@@ -1,11 +1,13 @@
 import React from 'react'
 import {BookType} from '@/types/index'
+import {useRouter} from 'next/router';
 
 interface IndexProps {
     Book: BookType;
 }
 
 const Index = ({Book}: IndexProps) => {
+    const router = useRouter();
     return (
         <tr>
             <td className='px-4 py-4 text-sm font-medium whitespace-nowrap'>
@@ -44,7 +46,7 @@ const Index = ({Book}: IndexProps) => {
                 </div>
             </td>
             <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                <button className='px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100'>
+                <button onClick={() => router.push(`/admin/${Book.id}`)} className='px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100'>
                     <svg
                         xmlns='http://www.w3.org/2000/svg'
                         fill='none'
