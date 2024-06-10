@@ -9,7 +9,9 @@ export default function Books() {
             <div className="block md:hidden">
                 <NavbarMobile/>
             </div>
-            <BooksMain/>
+            <div className="flex items-center justify-between border px-[450px] bg-black w-full">
+                <BooksMain/>
+            </div>
         </div>
     );
 }

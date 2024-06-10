@@ -1,31 +1,24 @@
 interface BookFormData {
-  title: string;
-  author: string;
+  titulo: string;
+  autor: string;
   isbn: string;
   available: boolean;
 }
 
-export const booksUpsertTransformations = ({
-  formData
-}: {
-  formData: BookFormData;
-}) => {
+export const booksUpsertTransformations = ({ formData }: { formData: BookFormData }) => {
   const dataCreate = {
-    title: formData.title,
-    author: formData.author,
+    title: formData.titulo,
+    author: formData.autor,
     isbn: formData.isbn,
-    available: formData.available,
+    available: formData.available === 'on' ? true : false,
   };
 
   const dataUpdate = {
-    title: { set: formData.title },
-    author: { set: formData.author },
+    title: { set: formData.titulo },
+    author: { set: formData.autor },
     isbn: { set: formData.isbn },
-    available: { set: formData.available },
+    available: { set: formData.available === 'on' ? true : false },
   };
 
-  return {
-    dataCreate,
-    dataUpdate,
-  };
+  return { dataCreate, dataUpdate };
 };

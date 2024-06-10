@@ -18,29 +18,30 @@ const options: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   callbacks: {
     async signIn({ user }) {
-      // Asigna un valor al campo password si no está presente
       if (!user.password) {
-        user.password = user.id; // Puedes generar una contraseña segura aquí
+        user.password = user.id;
       }
       /*
-      // Asigna un valor al campo role si no está presente
       if (!user.role) {
-        user.role = 'USER'; // O el rol que consideres por defecto
+        user.role = 'USER';
       }*/
       return true;
     },
     async session({ session, user }) {
-      // Incluye el objeto completo `user` en la sesión
       if (session.user) {
-        session.user.role = user.role; // Añadir el rol al objeto user en la sesión
+        session.user.role = user.role;
       }
       return session;
     },
     async jwt({ token, user }) {
       if (user) {
-        token.role = user.role; // Añadir el rol al token JWT
+        token.role = user.role;
       }
       return token;
+    },
+    async redirect({ url, baseUrl }) {
+      // Redirigir a la página de inicio después del login
+      return baseUrl + '/home';
     },
   },
 };

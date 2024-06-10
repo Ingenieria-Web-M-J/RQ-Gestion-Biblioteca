@@ -10,7 +10,7 @@ const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
     // signIn('auth0');
   }
   if (status === 'loading' || !session) {
-    return <div>Loading...</div>;
+   
   }
 
   return <>{children}</>;
