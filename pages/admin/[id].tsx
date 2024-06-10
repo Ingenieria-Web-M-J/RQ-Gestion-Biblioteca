@@ -4,7 +4,7 @@ import { NavbarDesk, NavbarMobile, HomeMain } from "@/components/plantilla";
 import useFormData from '@/hooks/useFormData';
 import { useQuery, useMutation } from '@apollo/client';
 import { UPSERT_BOOK } from '@/utils/mutations/books';
-import { booksUpsertTrasnformations } from '@/utils/transformations/books';
+import { booksUpsertTransformations } from '@/utils/transformations/books';
 
 export async function getServerSideProps(context: { params: { id: any } }) {
   const id = context.params.id;
@@ -27,7 +27,7 @@ export async function getServerSideProps(context: { params: { id: any } }) {
       const handleSubmit = async (e: { preventDefault: () => void }) => {
         e.preventDefault();
         
-        const { dataCreate, dataUpdate } =booksUpsertTrasnformations({
+        const { dataCreate, dataUpdate } =booksUpsertTransformations({
           formData,
           
         });
